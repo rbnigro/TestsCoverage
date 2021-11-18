@@ -11,7 +11,7 @@ public class VendedorTest {
 		
 		Vendedor vendedor = new Vendedor();
 		vendedor.setId(1);
-		vendedor.setNome("Vendedor");
+		vendedor.setNome("Nome Vendedor");
 		
 		String expected = "Vendedor [id=1, nome=Nome Vendedor]";
 		
