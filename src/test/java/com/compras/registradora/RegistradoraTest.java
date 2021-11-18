@@ -1,6 +1,6 @@
 package com.compras.registradora;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
@@ -8,9 +8,8 @@ import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 import org.mockito.Mock;
 
 import com.compras.Compra;
@@ -28,11 +27,16 @@ public class RegistradoraTest {
 	
 	private Compra compra;
 	
-	@BeforeEach
-	
-	@BeforeAll
+	@Before
 	public void setup() {
-		criarProdutos();
+		produtoA = new Item();
+		produtoA.setNome("Produto A");
+		produtoA.setValor(new BigDecimal(7.00));
+
+		produtoB = new Item();
+		produtoB.setNome("Produto B");
+		produtoB.setValor(new BigDecimal(6.50));
+
 		List<Item> listaItens = Arrays.asList(produtoA, produtoB);
 		
 		compra = new Compra();
@@ -83,16 +87,5 @@ public class RegistradoraTest {
 		registradora.efetivarVenda();
 		
 		//Assertions.ass
-	}
-	
-	private void criarProdutos() {
-		produtoA = new Item();
-		produtoA.setNome("Produto A");
-		produtoA.setValor(new BigDecimal(7.00));
-
-		produtoB = new Item();
-		produtoB.setNome("Produto B");
-		produtoB.setValor(new BigDecimal(6.50));
-
 	}
 }

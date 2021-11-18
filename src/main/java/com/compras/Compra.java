@@ -8,7 +8,7 @@ public class Compra {
 	private List<Item> itens;
 
 	public Compra() {
-		super();
+
 	}
 
 	public List<Item> getItens() {
