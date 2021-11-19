@@ -9,4 +9,8 @@ public class BancoDeDados {
 	public static void addVenda(Venda venda) {
 		vendas.add(venda);
 	}
+
+	public static void reset() {
+		vendas.clear();
+	}
 }

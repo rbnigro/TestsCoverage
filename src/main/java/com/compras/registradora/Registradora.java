@@ -58,14 +58,19 @@ public class Registradora {
 
 	public void efetivarVenda() {
 		BigDecimal totalCompra = compra.getTotal();
-		BigDecimal troco = valorRecebido.subtract(totalCompra);
-		Venda venda = new Venda();
-		venda.setTotalCompra(totalCompra);
-		venda.setTroco(troco);
-		venda.setVendedor(vendedor);
-		venda.setCliente(cliente);
-		
-		BancoDeDados.addVenda(venda);
-		
+
+		if (totalCompra.compareTo(valorRecebido) > 0) {
+			return;
+		} else {
+
+			BigDecimal troco = valorRecebido.subtract(totalCompra);
+			Venda venda = new Venda();
+			venda.setTotalCompra(totalCompra);
+			venda.setTroco(troco);
+			venda.setVendedor(vendedor);
+			venda.setCliente(cliente);
+
+			BancoDeDados.addVenda(venda);
+		}
 	}
 }
